@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module6TP1", "Module6TP1\Module6TP1.csproj", "{0E6FBC67-918E-4A8D-A581-812EABFA20A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BO", "..\..\..\..\Documents\ENI\Cours 250 - Module 6\Module 06 - Énoncé TP 01 - Le Dojo – partie 1\Ressources Module 06 - Enoncé TP 01\BO.csproj", "{0BBA0441-0AB7-4112-946B-521C9CEC7367}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E6FBC67-918E-4A8D-A581-812EABFA20A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E6FBC67-918E-4A8D-A581-812EABFA20A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E6FBC67-918E-4A8D-A581-812EABFA20A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E6FBC67-918E-4A8D-A581-812EABFA20A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BBA0441-0AB7-4112-946B-521C9CEC7367}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BBA0441-0AB7-4112-946B-521C9CEC7367}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BBA0441-0AB7-4112-946B-521C9CEC7367}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BBA0441-0AB7-4112-946B-521C9CEC7367}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {08A4A801-1980-47D9-8D02-8D7EF7562CB5}
+	EndGlobalSection
+EndGlobal
