@@ -10,7 +10,9 @@ namespace Module6TP1.Models
     public class SamouraiVM
     {
         public Samourai Samourai { get; set; }
-        public List<SelectListItem> allArme { get; set; }
-        public int IdArme { get; set; }
+        public IEnumerable<SelectListItem> allArme { get; set; }
+        public int? IdArme { get; set; }
+        public List<ArtMartial> ArtMartials { get; set; } = new List<ArtMartial>();
+        public List<int> IdsArtMartiaux { get; set; } = new List<int>();
     }
 }

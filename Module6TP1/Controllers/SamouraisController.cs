@@ -41,6 +41,13 @@ namespace Module6TP1.Controllers
         public ActionResult Create()
         {
             SamouraiVM vm = new SamouraiVM();
+
+            List<int> armeIds = db.Samourais.Where(x => x.Arme != null).Select(x => x.Arme.Id).ToList();
+            vm.allArme = db.Armes.Where(x => !armeIds.Contains(x.Id)).ToList()
+                .Select(a => new SelectListItem { Text = a.Nom, Value = a.Id.ToString() });
+            vm.ArtMartials.Add(new ArtMartial() { Nom = "Aucun" });
+            vm.ArtMartials.AddRange(db.ArtMartials.ToList());
+
             initList(vm);
             return View(vm);
         }
@@ -54,7 +61,15 @@ namespace Module6TP1.Controllers
         {
             if (ModelState.IsValid)
             {
-                samouraiVm.Samourai.Arme = db.Armes.FirstOrDefault(a => a.Id == samouraiVm.IdArme);
+                if (samouraiVm.IdArme !=null)
+                {
+                    samouraiVm.Samourai.Arme = db.Armes.FirstOrDefault(a => a.Id == samouraiVm.IdArme);
+                }
+
+
+                samouraiVm.Samourai.ArtMartials = db.ArtMartials.Where(a => samouraiVm.IdsArtMartiaux.Contains(a.Id))
+                    .ToList();
+                
 
                 db.Samourais.Add(samouraiVm.Samourai);
                 db.SaveChanges();
@@ -80,11 +95,20 @@ namespace Module6TP1.Controllers
 
             SamouraiVM vm = new SamouraiVM();
             vm.Samourai = samourai;
-            if (samourai.Arme != null)
+
+
+            List<int> armeIds = db.Samourais.Where(x => x.Arme != null && x.Id != id).Select(x => x.Arme.Id).ToList();
+            vm.allArme = db.Armes.Where(x => !armeIds.Contains(x.Id)).ToList()
+                .Select(a => new SelectListItem { Text = a.Nom, Value = a.Id.ToString() });
+            if (vm.Samourai.Arme != null)
             {
-                vm.IdArme = samourai.Arme.Id;
+                vm.IdArme = vm.Samourai.Arme.Id;
             }
-            
+
+            vm.ArtMartials.Add(new ArtMartial() { Nom = "Aucun" });
+            vm.ArtMartials.AddRange(db.ArtMartials.ToList());
+            vm.IdsArtMartiaux = vm.Samourai.ArtMartials.Select(x => x.Id).ToList();
+
             initList(vm);
             return View(vm);
         }
@@ -146,7 +170,7 @@ namespace Module6TP1.Controllers
 
         private void initList(SamouraiVM vm)
         {
-            vm.allArme = db.Armes.Select(a=> new SelectListItem { Text = a.Nom, Value = a.Id.ToString() }).ToList();
+            //vm.allArme = db.Armes.Select(a=> new SelectListItem { Text = a.Nom, Value = a.Id.ToString() }).ToList();
         }
     }
 }
